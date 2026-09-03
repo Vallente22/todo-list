@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import './App.css'
+import TodoItem from './components/TodoItem'
 
 export default function App() {
 
@@ -15,7 +16,7 @@ export default function App() {
       {
         id: nanoid(), 
         value: task,
-        complete: false
+        isComplete: false
       } 
     ])
     setTask("")
@@ -27,12 +28,7 @@ export default function App() {
 
   const todoElements = todos.map((task) => {
     return (
-      <div className="task-container">
-        <input type="checkbox" />
-        {task.value}
-        <button>Edit</button>
-        <button>Delete</button>
-      </div>
+      <TodoItem key={task.id} id={task.id} value={task.value} isComplete={task.isComplete} />
     )
   })
   

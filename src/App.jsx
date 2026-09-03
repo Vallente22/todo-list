@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 import './App.css'
 
 export default function App() {
@@ -9,7 +10,14 @@ export default function App() {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    setTodos(prevTodos => ([...prevTodos, task]))
+    setTodos(prevTodos => [
+      ...prevTodos,
+      {
+        id: nanoid(), 
+        value: task,
+        complete: false
+      } 
+    ])
     setTask("")
   }
 
@@ -17,7 +25,15 @@ export default function App() {
     setTask(event.target.value)
   }
 
-  console.log(todos)
+  const todoElements = todos.map((task) => {
+    return (
+      <div className="task-container">
+        {task.value}
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+    )
+  })
   
   return (
     <>
@@ -43,7 +59,7 @@ export default function App() {
 
         <section className="todo-display">
           <h2>My Tasks:</h2>
-          
+          {todoElements}
         </section>
       </main>
     </>

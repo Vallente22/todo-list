@@ -26,9 +26,21 @@ export default function App() {
     setTask(event.target.value)
   }
 
+  const completeTask = (id) => {
+    setTodos(prevTodos => 
+      prevTodos.map(todo => {
+        if (todo.id === id) {
+          return {...todo,
+            isComplete: !todo.isComplete
+          }
+        } else return todo
+      })
+    )
+  }
+
   const todoElements = todos.map((task) => {
     return (
-      <TodoItem key={task.id} id={task.id} value={task.value} isComplete={task.isComplete} />
+      <TodoItem key={task.id} id={task.id} value={task.value} isComplete={task.isComplete} completeTask={()=> completeTask(task.id)} />
     )
   })
   

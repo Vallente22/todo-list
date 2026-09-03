@@ -28,6 +28,7 @@ export default function App() {
   const todoElements = todos.map((task) => {
     return (
       <div className="task-container">
+        <input type="checkbox" />
         {task.value}
         <button>Edit</button>
         <button>Delete</button>

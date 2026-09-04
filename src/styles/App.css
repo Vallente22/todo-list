@@ -65,13 +65,13 @@ form button {
   padding: 12px 20px;
   border: none;
   border-radius: 6px;
-  background: #2563eb;
+  background: #25b408;
   color: white;
   cursor: pointer;
 }
 
 form button:hover {
-  background: #1d4ed8;
+  background: #1b8505;
 }
 
 /* Right side */
@@ -102,12 +102,24 @@ form button:hover {
   padding: 7px 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background: white;
+  color: white;
   cursor: pointer;
 }
 
-.task-container button:hover {
-  background: #f0f0f0;
+.edit-button {
+  background: #2563eb;
+}
+
+.delete-button {
+  background: #c70404;
+}
+
+.edit-button:hover {
+  background: #1d4ed8;
+}
+
+.delete-button:hover {
+  background: #a10101;
 }
 
 .task-container button:first-of-type {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
-import './App.css'
+import './styles/App.css'
 import TodoItem from './components/TodoItem'
 
 export default function App() {
@@ -61,6 +61,7 @@ export default function App() {
               value={task}
               onChange={handleChange}
               placeholder="Enter a task..."
+              required
             />
             <button type="submit">Submit</button>
           </form>

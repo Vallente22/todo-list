@@ -3,8 +3,8 @@ export default function TodoItem (props) {
     <div className="task-container">
       <input type="checkbox" onChange={props.completeTask} />
       <span className={props.isComplete ?  "task-completed" : ""}>{props.value}</span>
-      <button>Edit</button>
-      <button>Delete</button>
+      <button className="edit-button">Edit</button>
+      <button className="delete-button">Delete</button>
     </div>
   )
 }

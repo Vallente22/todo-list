@@ -6,7 +6,8 @@ body {
 }
 
 header {
-  background: white;
+  background: black;
+  color: white;
   padding: 25px;
   border-bottom: 1px solid #ddd;
 }
@@ -80,7 +81,7 @@ form button:hover {
   padding: 50px;
 }
 
-.task-container {
+.task-container, .edit-tile-container {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -110,12 +111,22 @@ form button:hover {
   background: #2563eb;
 }
 
-.delete-button {
-  background: #c70404;
-}
-
 .edit-button:hover {
   background: #1d4ed8;
+}
+
+.edit-tile-container {
+  width:600px;
+  height: 200px;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.delete-button {
+  background: #c70404;
 }
 
 .delete-button:hover {

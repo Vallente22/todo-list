@@ -27,7 +27,7 @@ export default function TodoItem (props) {
         <input type="checkbox" onChange={props.completeTask} />
         <span className={props.isComplete ?  "task-completed" : ""}>{props.value}</span>
         <button className="edit-button" onClick={editClick}>Edit</button>
-        <button className="delete-button">Delete</button>
+        <button className="delete-button" onClick={props.deleteTask}>Delete</button>
       </div>
       { isEditing &&
         <div className="edit-tile-container">

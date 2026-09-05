@@ -49,6 +49,12 @@ export default function App() {
       })
     )
   }
+
+  const deleteTask = (id) => {
+    setTodos(prevTodos => 
+      prevTodos.filter(todo => todo.id !== id)
+    )
+  }
   
 
   const todoElements = todos.map((task) => {
@@ -60,6 +66,7 @@ export default function App() {
         isComplete={task.isComplete} 
         completeTask={() => completeTask(task.id)}
         editTask={(newValue) => editTask(task.id, newValue)}
+        deleteTask={() => deleteTask(task.id)}
       />
     )
   })

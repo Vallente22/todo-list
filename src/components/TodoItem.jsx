@@ -30,6 +30,7 @@ export default function TodoItem (props) {
         <button className="delete-button" onClick={props.deleteTask}>Delete</button>
       </div>
       { isEditing &&
+      <div className="modal-overlay">
         <div className="edit-tile-container">
           <form onSubmit={handleSubmit}>
             <input 
@@ -44,6 +45,7 @@ export default function TodoItem (props) {
             <button type="button" onClick={handleCancel}>Cancel</button>
           </form>
         </div>
+      </div>
       }
     </>
   )

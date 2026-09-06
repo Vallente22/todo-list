@@ -107,6 +107,16 @@ form button:hover {
   cursor: pointer;
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
 .edit-button {
   background: #2563eb;
 }

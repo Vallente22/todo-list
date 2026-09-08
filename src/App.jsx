@@ -15,15 +15,19 @@ export default function App() {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    setTodos(prevTodos => [
-      ...prevTodos,
-      {
-        id: nanoid(), 
-        value: task,
-        isComplete: false
-      } 
-    ])
-    setTask("")
+    if (task.trim() === "") {
+      setTask("")
+    } else {
+      setTodos(prevTodos => [
+        ...prevTodos,
+        {
+          id: nanoid(), 
+          value: task.trim(),
+          isComplete: false
+        } 
+      ])
+      setTask("")
+    }
   }
 
   const handleChange = (event) => {

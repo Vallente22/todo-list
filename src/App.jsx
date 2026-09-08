@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import './styles/App.css'
 import TodoItem from './components/TodoItem'
@@ -7,7 +7,11 @@ export default function App() {
 
   const [task, setTask] = useState("")
 
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  },[todos])
   
   const handleSubmit = (event) => {
     event.preventDefault()

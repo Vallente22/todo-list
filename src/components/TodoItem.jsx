@@ -5,8 +5,12 @@ export default function TodoItem (props) {
   const [editValue, setEditValue] = useState(props.value)
 
   const editClick = () => {
-    setIsEditing(prev => !prev)
+    if (!props.isComplete) {
+      setEditValue(props.value)
+      setIsEditing(true)
+    }
   }
+
   const handleChange = (event) => {
     setEditValue(event.target.value)
   }
@@ -24,7 +28,7 @@ export default function TodoItem (props) {
   return (
     <>
       <div className="task-container">
-        <input type="checkbox" onChange={props.completeTask} />
+        <input type="checkbox" onChange={props.completeTask} checked={props.isComplete} />
         <span className={props.isComplete ?  "task-completed" : ""}>{props.value}</span>
         <button className="edit-button" onClick={editClick}>Edit</button>
         <button className="delete-button" onClick={props.deleteTask}>Delete</button>
@@ -33,16 +37,17 @@ export default function TodoItem (props) {
       <div className="modal-overlay">
         <div className="edit-tile-container">
           <form onSubmit={handleSubmit}>
+            <label className="sr-only" htmlFor="edit-todo">Edit Task</label>
             <input 
-              id="todo"
+              id="edit-todo"
               type="text"
               value={editValue}
               onChange={handleChange}
               placeholder="Edit task..."
               required
             />
-            <button type="submit">Confirm</button>
-            <button type="button" onClick={handleCancel}>Cancel</button>
+            <button className="confirm-button" type="submit">Confirm</button>
+            <button className="cancel-button" type="button" onClick={handleCancel}>Cancel</button>
           </form>
         </div>
       </div>

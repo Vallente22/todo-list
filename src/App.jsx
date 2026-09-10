@@ -7,7 +7,12 @@ export default function App() {
 
   const [task, setTask] = useState("")
 
-  const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
+  const [todos, setTodos] = useState(() => {
+      const savedTodos = localStorage.getItem("todos")
+      
+      return savedTodos === null ? [] : JSON.parse(savedTodos)
+    }
+  )
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos))
